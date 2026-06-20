@@ -18,18 +18,6 @@
 /* --- Professional Color Palette --- */
 
 :root {
-    --bg-color: #f8f9fa;
-    --second-bg-color: #ffffff;
-    --text-color: #212529;
-    --main-color: #0d6efd;
-    /* Royal Blue */
-    --accent-color: #0a58ca;
-    --card-bg: #ffffff;
-    --shadow: rgba(0, 0, 0, 0.08);
-    --border-color: rgba(0, 0, 0, 0.05);
-}
-
-.dark-theme {
     --bg-color: #0f172a;
     /* Deep Slate Dark */
     --second-bg-color: #1e293b;
@@ -40,6 +28,18 @@
     --card-bg: #1e293b;
     --shadow: rgba(0, 0, 0, 0.3);
     --border-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme {
+    --bg-color: #f8f9fa;
+    --second-bg-color: #ffffff;
+    --text-color: #212529;
+    --main-color: #0d6efd;
+    /* Royal Blue */
+    --accent-color: #0a58ca;
+    --card-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.08);
+    --border-color: rgba(0, 0, 0, 0.05);
 }
 
 
@@ -55,7 +55,7 @@ body {
 }
 
 section {
-    min-height: 100vh;
+    min-height: 80vh;
     padding: 8rem 10% 4rem;
     display: flex;
     flex-direction: column;
@@ -102,15 +102,21 @@ section {
    3. MODERN HEADER (Glassmorphism)
    ========================================================================== */
 
+
+/* ==========================================================================
+   3. MODERN HEADER (Glassmorphism - Default Dark)
+   ========================================================================== */
+
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1.5rem 10%;
-    background: rgba(255, 255, 255, 0.8);
+    padding: 1.5rem 5%;
+    /* Spacing bilkul sahi rakhne ke liye */
+    background: rgba(15, 23, 42, 0.8);
+    /* Ab default background dark slate ho gaya hai */
     backdrop-filter: blur(10px);
-    /* Blurry Glass Effect */
     -webkit-backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
@@ -120,8 +126,11 @@ section {
     transition: background 0.4s;
 }
 
-.dark-theme .header {
-    background: rgba(15, 23, 42, 0.8);
+
+/* Jab user light theme toggle kare, tab header white hoga */
+
+.light-theme .header {
+    background: rgba(11, 11, 11, 0.8);
 }
 
 .logo {
@@ -537,7 +546,7 @@ section {
 }
 
 .cert-img-box img {
-    width: 100%;
+    width: 80%;
     height: auto;
     border-radius: 10px;
     object-fit: cover;
@@ -556,15 +565,18 @@ section {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2.5rem;
+    /* 150px karne se cards choti screen par bhi side by side aa jayenge */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+
+}
 .skill-card {
     background: var(--card-bg);
-    padding: 2.5rem 2rem;
+    padding: 2rem 2rem;
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 10px 25px var(--shadow);
@@ -574,62 +586,49 @@ section {
     flex-direction: column;
     align-items: center;
 }
-
 .skill-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 35px var(--shadow);
     border-color: var(--main-color);
 }
-
 .skill-card i {
     font-size: 3.5rem;
     margin-bottom: 1.2rem;
     transition: transform 0.3s ease;
 }
-
 .skill-card:hover i {
     transform: scale(1.1);
 }
-
 .html-icon {
     color: #e34c26;
 }
-
 .css-icon {
     color: #264de4;
 }
-
 .js-icon {
     color: #f7df1e;
 }
-
 .cpp-icon {
     color: #00599c;
 }
-
 .python-icon {
     color: #3776ab;
 }
-
 .java-icon {
     color: #f89820;
 }
-
 .php-icon {
     color: #777bb4;
 }
-
 .mysql-icon {
     color: #00758f;
 }
-
 .skill-card h3 {
     font-size: 1.3rem;
     font-weight: 600;
     color: var(--text-color);
     letter-spacing: 0.5px;
 }
-
 .progress-container {
     background: rgba(0, 0, 0, 0.08);
     border-radius: 10px;
@@ -638,33 +637,27 @@ section {
     margin: 1.2rem 0 0.6rem;
     overflow: hidden;
 }
-
 .dark-theme .progress-container {
     background: rgba(255, 255, 255, 0.1);
 }
-
 .progress-bar {
     background: linear-gradient(90deg, var(--main-color), var(--accent-color));
     height: 100%;
     border-radius: 10px;
 }
-
 .percentage {
     font-size: 1rem;
     font-weight: 700;
     color: var(--main-color);
 }
 
-
 /* ==========================================================================
    10. PROJECTS SECTION
    ========================================================================== */
-
 .projects {
     background: var(--second-bg-color);
     padding: 7rem 10%;
 }
-
 .projects-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -672,7 +665,6 @@ section {
     max-width: 1200px;
     margin: 0 auto;
 }
-
 .project-box {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -686,19 +678,16 @@ section {
     position: relative;
     overflow: hidden;
 }
-
 .project-box:hover {
     transform: translateY(-8px);
     border-color: var(--main-color);
     box-shadow: 0 15px 35px var(--shadow);
 }
-
 .project-icon-top {
     font-size: 2.5rem;
     color: var(--main-color);
     margin-bottom: 1.5rem;
 }
-
 .project-content-box h4 {
     font-size: 1.4rem;
     font-weight: 700;
@@ -706,20 +695,17 @@ section {
     margin-bottom: 1rem;
     letter-spacing: -0.5px;
 }
-
 .project-content-box p {
     font-size: 1rem;
     line-height: 1.6;
     opacity: 0.8;
     margin-bottom: 2rem;
 }
-
 .project-tags {
     display: flex;
     gap: 0.8rem;
     flex-wrap: wrap;
 }
-
 .project-tags span {
     background: rgba(13, 110, 253, 0.08);
     color: var(--main-color);
@@ -729,18 +715,15 @@ section {
     font-weight: 600;
     border: 1px solid rgba(13, 110, 253, 0.15);
 }
-
 .dark-theme .project-tags span {
     background: rgba(56, 189, 248, 0.1);
     color: var(--main-color);
     border-color: rgba(56, 189, 248, 0.2);
 }
 
-
 /* ==========================================================================
    11. CONTACT SECTION
    ========================================================================== */
-
 .contact form {
     max-width: 650px;
     margin: 0 auto;
@@ -750,13 +733,11 @@ section {
     box-shadow: 0 15px 40px var(--shadow);
     border: 1px solid var(--border-color);
 }
-
 .contact form .input-box {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
-
 .contact form .input-box input,
 .contact form textarea {
     width: 100%;
@@ -769,53 +750,49 @@ section {
     border: 1px solid var(--border-color);
     transition: border-color 0.3s;
 }
-
 .contact form .input-box input:focus,
 .contact form textarea:focus {
     border-color: var(--main-color);
 }
-
 .contact form .input-box input {
     width: 49%;
 }
-
 .contact form textarea {
     resize: none;
 }
-
 .contact form .btn {
     margin-top: 1.5rem;
     width: 100%;
 }
 
-
 /* ==========================================================================
    12. RESPONSIVE DESIGN (Mobile Friendly)
    ========================================================================== */
 
-
 /* ==========================================================================
    12. RESPONSIVE DESIGN (Fixed & Balanced)
    ========================================================================== */
-
 @media (max-width: 991px) {
     html {
         font-size: 85%;
     }
+    
     section {
         padding: 6rem 5% 4rem;
     }
 }
-
 @media (max-width: 768px) {
     /* Navbar fix */
+    
     #menu-icon {
         display: block;
         order: 2;
     }
+    
     .header-icons {
         order: 3;
     }
+    
     .navbar {
         position: absolute;
         top: 100%;
@@ -828,31 +805,38 @@ section {
         display: flex;
         flex-direction: column;
     }
+    
     .navbar.active {
         left: 0;
     }
     /* Home Section Fix */
+    
     .home {
         flex-direction: column-reverse;
         text-align: center;
         gap: 1.5rem;
     }
+    
     .home-img img {
         width: 60vw;
         height: 60vw;
     }
+    
     .home-content h1 {
         font-size: 2.5rem;
     }
     /* About Section Padding Fix */
+    
     .about {
         padding: 4rem 5%;
     }
+    
     .about-info .main-title {
         font-size: 2rem;
         margin-bottom: 1rem;
     }
     /* Skills & Projects Grid Fix */
+    
     .skills-grid,
     .projects-container,
     .cert-image-grid {
@@ -861,36 +845,40 @@ section {
         gap: 1rem;
     }
     /* Skills Icons ka size chota kiya taake alignment theek rahe */
+    
     .skill-card {
         padding: 1.2rem;
     }
+    
     .skill-card i {
         font-size: 2.5rem;
         margin-bottom: 0.5rem;
     }
     /* Location Grid Fix */
+    
     .location-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
     /* Contact Form Fix */
+    
     .contact form {
         padding: 1.5rem;
     }
+    
     .contact form .input-box input {
         width: 100%;
     }
 }
 
-
 /* Extra small devices fix */
-
 @media (max-width: 480px) {
     .skills-grid,
     .projects-container {
         grid-template-columns: 1fr;
         /* 1 column for very small phones */
     }
+    
     .heading {
         font-size: 2.2rem;
         margin-bottom: 2rem;
